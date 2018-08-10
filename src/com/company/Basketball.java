@@ -53,7 +53,7 @@ public class Basketball
                 System.out.println("Lose Ball:  Don't Move");
             }
 
-            System.out.println(currentPlayer.getName() + " is now at position " + currentPlayer.getPosition());
+            System.out.println(currentPlayer.getName() +"'s current score is " + currentPlayer.getPosition());
 
             if (currentPlayer.getPosition() >= WINNING_SCORE)
             {
