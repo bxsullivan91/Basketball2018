@@ -27,35 +27,35 @@ public class Basketball
 
         do
         {
-            System.out.println("Starting turn for " + currentPlayer.getName() + " at " + currentPlayer.getPosition());
+            System.out.println("Starting turn for " + currentPlayer.getName() + " at " + currentPlayer.getScore());
             dice.roll();
             System.out.println("Rolled a " + dice.dieTotalValue());
 
 
-            if (movedSpaces(dice.dieTotalValue()) == 1)
+            if (addedPoints(dice.dieTotalValue()) == 1)
             {
                 System.out.println("Move One Space!");
                 currentPlayer.moveForwardOne();
 
             }
-            else if (movedSpaces(dice.dieTotalValue()) == 2)
+            else if (addedPoints(dice.dieTotalValue()) == 2)
             {
                 System.out.println("Move forward 2 Spaces!");
                 currentPlayer.moveForwardTwo();
             }
-            else if (movedSpaces(dice.dieTotalValue()) == 3)
+            else if (addedPoints(dice.dieTotalValue()) == 3)
             {
                 System.out.println("Move forward 3 Spaces!!!");
                 currentPlayer.moveForwardThree();
             }
-            else if (movedSpaces(dice.dieTotalValue()) == 0)
+            else if (addedPoints(dice.dieTotalValue()) == 0)
             {
                 System.out.println("Lose Ball:  Don't Move");
             }
 
-            System.out.println(currentPlayer.getName() +"'s current score is " + currentPlayer.getPosition());
+            System.out.println(currentPlayer.getName() +"'s current score is " + currentPlayer.getScore());
 
-            if (currentPlayer.getPosition() >= WINNING_SCORE)
+            if (currentPlayer.getScore() >= WINNING_SCORE)
             {
 
                 gameOver = true;
@@ -72,24 +72,24 @@ public class Basketball
 
     }
 
-    private static int movedSpaces(int diceTotal)
+    private static int addedPoints(int diceTotal)
     {
-        int totalSpacesMoved = 0;
+        int points = 0;
 
         if (diceTotal == 5)
         {
-            totalSpacesMoved = 1;
+            points = 1;
         }
         if (diceTotal == 4 || diceTotal == 6 || diceTotal == 8)
         {
-            totalSpacesMoved = 2;
+            points = 2;
         }
         if (diceTotal == 2 || diceTotal == 10 || diceTotal == 12)
         {
-            totalSpacesMoved = 3;
+            points = 3;
         }
 
-        return totalSpacesMoved;
+        return points;
     }
 
     private static PlayerPeg togglePlayerPeg(PlayerPeg playerOnePeg, PlayerPeg playerTwoPeg, PlayerPeg currentPlayerPeg)

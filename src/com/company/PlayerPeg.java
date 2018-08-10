@@ -2,19 +2,19 @@ package com.company;
 
 public class PlayerPeg
 {
-    private int START_POSITION = 0;
-    private int position;
+
+    private int score;
     private String name;
 
     public PlayerPeg(String name)
     {
-        this.position = START_POSITION;
+        this.score = 0;
         this.name = name;
     }
 
-    public int getPosition()
+    public int getScore()
     {
-        return position;
+        return score;
     }
 
     public String getName()
@@ -25,17 +25,17 @@ public class PlayerPeg
 
     public void moveForwardOne()
     {
-        this.position++;
+        this.score++;
     }
 
     public void moveForwardTwo()
     {
-        this.position += 2;
+        this.score += 2;
     }
 
     public void moveForwardThree()
     {
-        this.position += 3;
+        this.score += 3;
     }
 
 
